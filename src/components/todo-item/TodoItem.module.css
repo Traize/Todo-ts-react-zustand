@@ -1,0 +1,27 @@
+.todoItem {
+    display: flex;
+    margin: 10px 0;
+    padding: 0 0.2rem;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(53, 53, 53);
+}
+
+.label {
+    display: contents;
+    margin: 0 10px;
+}
+
+.titleWrapper {
+    width: 100%;
+    display: flex;
+    text-align: start;
+}
+
+.task {
+    margin: 0 10px;
+}
+
+.task:hover {
+    color: gray;
+}

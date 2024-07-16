@@ -1,0 +1,15 @@
+.addTodoWrapper {
+    margin-top: 1rem;
+    display: flex;
+    gap: 10px;
+}
+
+.addInput {
+    padding: 0.2rem;
+    width: 100%;
+    border-radius: 6px;
+}
+
+.addInput:focus {
+    outline: solid 1px rgb(75, 75, 75);
+}

@@ -1,0 +1,22 @@
+.btnsWrapper {
+    max-width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+
+.btnDefault:focus {
+    outline: none;
+}
+
+.delBtn {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin: 5px;
+}
+
+.delBtn:hover {
+    color: gray
+}
