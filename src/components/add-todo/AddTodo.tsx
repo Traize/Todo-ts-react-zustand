@@ -1,15 +1,15 @@
 import { FC, useRef } from 'react';
 import Button from '../button/Button';
 import styles from './AddTodo.module.css'
-import { useAppDispatch } from '../../hooks/hooks';
-import { addTodo } from '../../store/todoSlice';
+import { todosApi } from '../../store/todoApi';
+import { ITodo } from '../../types/types';
 
 const AddTodo: FC = () => {
-    const dispatch = useAppDispatch()
+    const [addTodo] = todosApi.useAddTodoMutation()
     const ref = useRef<HTMLInputElement>(null)
-    const handleAddTodo = () => {
+    const handleAddTodo = async () => {
         if (ref.current) {
-            dispatch(addTodo(ref.current.value));
+            await addTodo({title: ref.current.value, completed: false} as ITodo);
             ref.current.value = ''
         }
     }
