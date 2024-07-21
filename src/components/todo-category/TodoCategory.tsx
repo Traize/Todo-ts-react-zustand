@@ -1,31 +1,30 @@
 import { FC } from 'react';
 import styles from './TodoCategory.module.css'
 import Button from '../button/Button';
-import { useTodoStore } from '../../store/store';
+import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
+import { filterTodos } from '../../store/todoSlice';
 
-// interface ITodoCategoryProps {
-// }
 
 const TodoCategory: FC = () => {
-    const filter = useTodoStore(state => state.filter)
-    const filterTodos = useTodoStore(state => state.filterTodos)
+    const dispatch = useAppDispatch()
+    const filter = useAppSelector(state => state.todos.filter)
     return (
 
         <div className={styles.category}>
             <Button
                 text='Все заметки'
                 disabled={filter === 'all'}
-                onClick={() => filterTodos('all')}
+                onClick={() => dispatch(filterTodos('all'))}
             ></Button>
             <Button
                 text='Завершенные'
                 disabled={filter === 'completed'}
-                onClick={() => filterTodos('completed')}
+                onClick={() => dispatch(filterTodos('completed'))}
             ></Button>
             <Button
                 text='Не завершенные'
                 disabled={filter === 'uncompleted'}
-                onClick={() => filterTodos('uncompleted')}
+                onClick={() => dispatch(filterTodos('uncompleted'))}
             ></Button>
         </div>
 

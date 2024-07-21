@@ -3,6 +3,9 @@
   padding: 0;
   border: 0;
   box-sizing: border-box;
+  color: rgba(255, 255, 255, 0.87);
+
+
 }
 
 :root {
@@ -58,7 +61,11 @@ button:focus-visible {
   outline: none
 }
 
-@media (prefers-color-scheme: light) {
+input {
+  color: black;
+}
+
+/* @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
@@ -71,4 +78,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */

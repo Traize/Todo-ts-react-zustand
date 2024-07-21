@@ -2,28 +2,26 @@ import { FC } from 'react';
 import { ITodo } from '../../types/types';
 import styles from './TodoItem.module.css'
 import TodoBtns from '../todo-item-btns/TodoItemBtns';
-import { useTodoStore } from '../../store/store';
+import { useAppDispatch } from '../../hooks/hooks';
+import { toggleTodo } from '../../store/todoSlice';
 
-interface TodoItemProps {
-    todo: ITodo;
-}
 
-const TodoItem: FC<TodoItemProps> = ({ todo }) => {
 
-    const toggleTodo = useTodoStore(state => state.toggleTodo)
+const TodoItem: FC<ITodo> = ({id, title, completed}) => {
+    const dispatch = useAppDispatch()
 
     return (
         <div className={styles.todoItem}>
             <label className={styles.label} >
                 <input
                     type="checkbox"
-                    checked={todo.completed}
-                    onChange={() => toggleTodo(todo.id)} />
+                    checked={completed}
+                    onChange={() => dispatch(toggleTodo(id))} />
                 <div className={styles.titleWrapper}>
-                    <p className={styles.task}>{todo.title}</p>
+                    <p className={styles.task}>{title}</p>
                 </div>
             </label>
-            <TodoBtns id={todo.id} />
+            <TodoBtns id={id} />
         </div>
     );
 };

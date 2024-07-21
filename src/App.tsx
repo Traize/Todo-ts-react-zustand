@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <h1>Todo List</h1>
-      <TodoCategory />
+      <TodoCategory/>
       <TodoList />
       <AddTodo />
     </>

@@ -1,26 +1,25 @@
 import { FC } from 'react';
 import TodoItem from '../todo-item/TodoItem';
-import { useTodoStore } from '../../store/store';
+import { useAppSelector } from '../../hooks/hooks';
+
 
 
 
 const TodoList: FC = () => {
-    const filter = useTodoStore(state => state.filter)
-
-    const todos = useTodoStore(state => {
+    const filter = useAppSelector(state => state.todos.filter)
+    const todos = useAppSelector(state => {
         switch (filter) {
             case 'completed':
-                return state.todos.filter((todo) => todo.completed);
+                return state.todos.list.filter((todo) => todo.completed);
             case 'uncompleted':
-                return state.todos.filter((todo) => !todo.completed);
+                return state.todos.list.filter((todo) => !todo.completed);
             default:
-                return state.todos
-        }
+                return state.todos.list}
     })
 
     return (
         <div className=''>
-            {todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
+            {todos.map(todo => <TodoItem key={todo.id} {...todo} />)}
         </div>
     );
 };

@@ -1,14 +1,15 @@
 import { FC, useRef } from 'react';
-import { useTodoStore } from '../../store/store';
 import Button from '../button/Button';
 import styles from './AddTodo.module.css'
+import { useAppDispatch } from '../../hooks/hooks';
+import { addTodo } from '../../store/todoSlice';
 
 const AddTodo: FC = () => {
-    const addTodo = useTodoStore(state => state.addTodo)
+    const dispatch = useAppDispatch()
     const ref = useRef<HTMLInputElement>(null)
     const handleAddTodo = () => {
         if (ref.current) {
-            addTodo(ref.current.value);
+            dispatch(addTodo(ref.current.value));
             ref.current.value = ''
         }
     }
