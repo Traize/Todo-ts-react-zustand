@@ -5,16 +5,6 @@ import { useGetTodosQuery } from '../../store/todoApi';
 
 const TodoList = () => {
     const {data,isLoading,isError} = useGetTodosQuery(10)
-    // const filter = useAppSelector(state => state.todos.filter)
-    // const todos = useAppSelector(state => {
-    //     switch (filter) {
-    //         case 'completed':
-    //             return state.todos.list.filter((todo) => todo.completed);
-    //         case 'uncompleted':
-    //             return state.todos.list.filter((todo) => !todo.completed);
-    //         default:
-    //             return state.todos.list}
-    // })
     
     return (
         <div>

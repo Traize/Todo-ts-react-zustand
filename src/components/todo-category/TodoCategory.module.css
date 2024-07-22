@@ -5,9 +5,19 @@
 
 .category {
     gap: 0.8rem;
-    width: 27rem;
+    width: fit-content;
     display: flex;
     justify-content: start;
     font-size: 18px;
     font-weight: 500;
+}
+
+option {
+    background-color: rgb(53, 53, 53);
+}
+
+select {
+    padding: 0.2rem;
+    border-radius: 6px;
+    background-color: rgb(53, 53, 53);
 }
